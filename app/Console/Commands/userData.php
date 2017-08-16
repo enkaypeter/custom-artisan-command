@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use App\User;
 class userData extends Command
 {
     /**
@@ -11,7 +11,7 @@ class userData extends Command
      *
      * @var string
      */
-    protected $signature = 'add:user_id';
+    protected $signature = 'add:user_data';
 
     /**
      * The console command description.
@@ -56,7 +56,7 @@ class userData extends Command
 
             $meta_descArr = $data;
             for ($i = 0; $i < count($meta_descArr); $i ++){
-                Users::firstOrCreate($meta_descArr[$i]);
+                User::firstOrCreate($meta_descArr[$i]);
             }
             echo "Users data added"."\n";
     }
